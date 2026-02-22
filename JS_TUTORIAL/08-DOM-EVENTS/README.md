@@ -39,7 +39,69 @@ element.addEventListener("click", (event) => {
 });
 ```
 
----
+## What is the DOM?
+
+The **Document Object Model (DOM)** is a programming interface for web documents. It represents the page so programs can change the structure, style, and content dynamically.
+
+**The DOM is a tree:**
+```
+Document
+  └─ html
+      ├─ head
+      │   ├─ title
+      │   └─ meta
+      └─ body
+          ├─ header
+          ├─ main
+          │   ├─ article
+          │   └─ article
+          └─ footer
+```
+
+## Common Event Types
+
+| Event | When | Example |
+|-------|------|---------|
+| click | User clicks element | Button, link click |
+| change | Form input changes | Select dropdown, checkbox |
+| submit | Form submitted | Form submission |
+| focus | Element gets focus | Input field selected |
+| blur | Element loses focus | Moving away from input |
+| keydown | Key pressed down | Keyboard input |
+| scroll | Page scrolls | User scrolling |
+| load | Page fully loaded | Image, page load |
+| resize | Window resized | Responsive behavior |
+
+## Real-World Patterns
+
+**Toggle visibility:**
+```javascript
+const button = document.getElementById("toggle");
+const content = document.getElementById("content");
+button.addEventListener("click", () => {
+  content.classList.toggle("hidden");
+});
+```
+
+**Form validation:**
+```javascript
+const form = document.getElementById("myForm");
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  if (validateForm()) {
+    form.submit();
+  }
+});
+```
+
+**Event delegation (many items):**
+```javascript
+document.getElementById("list").addEventListener("click", (e) => {
+  if (e.target.tagName === "LI") {
+    console.log("Item clicked:", e.target.textContent);
+  }
+});
+```
 
 ## Learning Path
 
@@ -49,13 +111,83 @@ DOM Basics → DOM Manipulation → DOM Navigation
 → Event Propagation
 ```
 
-**Use DOM to**:
-- Create dynamic web pages
-- Respond to user input
-- Update content without reloading
-- Build interactive applications
+## Key Concepts
 
-**Start with**: [DOM Basics](./01-dom-basics.md)
+- **DOM Nodes**: Every element in HTML is a node
+- **Selecting**: Finding elements with selectors
+- **Manipulation**: Changing content, styles, attributes
+- **Navigation**: Moving between parent/child/sibling nodes
+- **Events**: Responding to user actions
+- **Event Listeners**: Functions that run when events occur
+- **Propagation**: How events bubble through the DOM tree
+- **Delegation**: Efficient event handling for many elements
+
+## DOM Manipulation Best Practices
+
+- Use `textContent` instead of `innerHTML` when setting plain text
+- Use `classList` instead of manually changing `className`
+- Avoid repeatedly accessing same element (cache in variables)
+- Use event delegation for dynamic content
+- Remove event listeners when no longer needed
+- Be careful with innerHTML (security risk with user input)
+
+## Common Mistakes to Avoid
+
+- Accessing DOM before page loads (script in head without defer)
+- Using `innerHTML` with user input (XSS vulnerability)
+- Not removing event listeners (memory leaks)
+- Selecting elements incorrectly (wrong selector)
+- Modifying className directly instead of using classList
+- Not preventing default behavior when needed (e.preventDefault())
+
+## Performance Optimization
+
+- Use event delegation instead of many listeners
+- Cache DOM queries in variables
+- Use `requestAnimationFrame` for animations
+- Batch DOM updates to avoid reflows
+- Use `addEventListener` instead of on* attributes
+- Consider DocumentFragment for multiple insertions
+
+## Practice Exercises
+
+1. Create an interactive to-do list with add/delete/complete
+2. Build a form with real-time validation feedback
+3. Create a color picker with DOM manipulation
+4. Build an accordion that expands/collapses sections
+5. Create a counter with increment/decrement buttons
+6. Build a dynamic table that adds/removes rows
+7. Create keyboard shortcuts for common actions
+8. Build a modal dialog with open/close functionality
+
+## Advanced Topics
+
+- Virtual DOM (frameworks like React)
+- Shadow DOM
+- MutationObserver
+- Intersection Observer
+- Performance optimization
+- Accessibility (ARIA attributes)
+
+## Use DOM to
+
+- Create dynamic web pages that respond to users
+- Respond to user input (clicks, typing, scrolling)
+- Update content without reloading page
+- Build interactive applications
+- Create animations and transitions
+- Implement user-friendly interfaces
+
+---
+
+**Course Section**: DOM & Events - Interactive Web Pages  
+**Author**: Solomon Kassa  
+**Last Updated**: February 2026  
+**Difficulty**: Intermediate  
+**Prerequisites**: Fundamentals, Functions, Objects & Arrays  
+**Next**: Modern JavaScript section
+
+**Start with**: [DOM Manipulation & Events](./01-dom-manipulation.md)
 
 ---
 

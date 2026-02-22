@@ -191,7 +191,130 @@ setTimeout(() => {
 }, 10000);
 ```
 
+## Advanced Debugging
+
+### Conditional Breakpoints
+Set breakpoints that only trigger when condition is true
+```javascript
+// In DevTools, right-click breakpoint, add condition:
+i > 5  // Only break when i is greater than 5
+```
+
+### Logging Best Practices
+```javascript
+// Use console.group for organization
+console.group("User Data");
+console.log("Name:", user.name);
+console.log("Email:", user.email);
+console.groupEnd();
+
+// Use console.time for performance
+console.time("API Call");
+await fetch("/api/data");
+console.timeEnd("API Call");
+
+// Use console.assert for testing
+console.assert(value > 0, "Value should be positive");
+```
+
+## Performance Metrics
+
+### Key Metrics
+- **FCP** (First Contentful Paint) - When content first appears
+- **LCP** (Largest Contentful Paint) - When largest element loads
+- **FID** (First Input Delay) - Time to respond to user input
+- **CLS** (Cumulative Layout Shift) - Visual stability
+- **TTFB** (Time to First Byte) - Server response time
+
+### Measuring Performance
+```javascript
+// Using Performance API
+const mark1 = performance.now();
+doSomething();
+const mark2 = performance.now();
+console.log(`Took ${mark2 - mark1}ms`);
+
+// Using PerformanceObserver
+const observer = new PerformanceObserver((list) => {
+    for (const entry of list.getEntries()) {
+        console.log(`${entry.name}: ${entry.duration}ms`);
+    }
+});
+observer.observe({ entryTypes: ["measure"] });
+```
+
+## Optimization Techniques
+
+### Code Optimization
+- Minimize function call overhead
+- Use native methods (they're optimized)
+- Avoid try/catch in loops
+- Cache DOM queries and calculations
+- Use string concatenation carefully (use array.join() for many strings)
+
+### Network Optimization
+- Minify code
+- Compress images
+- Use CDN for static files
+- Lazy load content
+- Code splitting for large apps
+
+### Memory Optimization
+- Clean up event listeners
+- Remove unused timers
+- Avoid global variables
+- Be careful with closures
+- Use proper data structures
+
+## Key Takeaways
+
+- **Debugging is a skill** - Practice makes it easier
+- **Read error messages** - They usually tell you what's wrong
+- **Use the console** - Your best friend for troubleshooting
+- **Understand stack traces** - Shows the call sequence
+- **Performance matters** - Small optimizations add up
+- **Test your code** - Catch problems early
+- **Monitor in production** - Real-world usage reveals issues
+
+## Common Issues and Solutions
+
+| Issue | Cause | Solution |
+|-------|-------|----------|
+| Infinite loop | Loop condition always true | Check loop condition |
+| Undefined error | Variable not declared | Check variable name, scope |
+| Slow page | Inefficient code | Profile, optimize hot spots |
+| Memory leak | Forgotten references | Clean up listeners, timers |
+| CORS error | Cross-origin request | Configure CORS headers |
+
+## Debugging Checklist
+
+- [ ] Open DevTools (F12)
+- [ ] Check Console for errors
+- [ ] Log key variables
+- [ ] Set breakpoints at suspicious code
+- [ ] Step through execution
+- [ ] Check Network tab for API issues
+- [ ] Verify data before/after operations
+- [ ] Check Performance tab for bottlenecks
+
+## Practice Exercises
+
+1. Debug a script with intentional errors
+2. Find and fix a memory leak
+3. Optimize a slow algorithm using profiling
+4. Locate bugs in complex code using breakpoints
+5. Fix a CORS issue
+6. Resolve a timing-related bug
+7. Optimize DOM manipulation
+
 ---
+
+**Course Section**: Debugging & Performance - Writing Better Code  
+**Author**: Solomon Kassa  
+**Last Updated**: February 2026  
+**Difficulty**: Advanced  
+**Prerequisites**: All previous sections  
+**Next**: Projects & Exercises
 
 **Start with**: [Debugging Tools](./01-debugging-tools.md)
 

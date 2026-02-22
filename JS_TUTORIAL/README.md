@@ -158,7 +158,17 @@ Or choose a specific section from the [Table of Contents](#complete-table-of-con
 
 ---
 
-**Last Updated**: 2024  
+## 👨‍💻 About the Author
+
+**Solomon Kassa** - Full-Stack Developer, Educator, and JavaScript Expert  
+Dedicated to making JavaScript accessible and understandable for learners of all levels.
+
+---
+
+**Author**: Solomon Kassa  
+**Last Updated**: February 2026  
 **Version**: 2.0 (Complete Edition)  
-**Total Content**: 1000+ lines of documentation + 1000+ code examples  
-**Estimated Learning Time**: 40-50 hours for complete mastery from zero
+**Total Content**: 11,500+ lines of documentation + 1,050+ code examples  
+**Total Files**: 34 organized markdown files  
+**Estimated Learning Time**: 40-50 hours for complete mastery from zero  
+**License**: Open for learning, teaching, and sharing

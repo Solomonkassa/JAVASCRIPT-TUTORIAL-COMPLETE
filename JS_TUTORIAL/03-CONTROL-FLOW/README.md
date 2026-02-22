@@ -39,6 +39,67 @@ If/Else → Loops → Switch → Combine All!
 - **Validation**: If email is invalid → show error message
 - **Data processing**: Loop through array and filter/transform data based on conditions
 
+## Common Patterns
+
+**Checking user input:**
+```javascript
+if (input === null || input === undefined) {
+  console.log("Please provide input");
+} else {
+  processInput(input);
+}
+```
+
+**Looping through data:**
+```javascript
+for (let i = 0; i < items.length; i++) {
+  console.log(items[i]);
+}
+```
+
+**Handling multiple cases:**
+```javascript
+switch (status) {
+  case 'pending': handlePending(); break;
+  case 'success': handleSuccess(); break;
+  default: handleError();
+}
+```
+
+## Key Takeaways
+
+- **If/else** handles true/false decisions
+- **Switch** is cleaner for multiple specific cases
+- **For loops** when you know iteration count
+- **While loops** when count is unknown
+- **Break/continue** control loop flow
+- **Nested structures** combine multiple conditions and loops
+
+## Practice Exercises
+
+1. Write a program that grades test scores (90+: A, 80+: B, 70+: C, etc.)
+2. Create a loop that prints multiplication tables from 1 to 10
+3. Build a simple menu system using switch statements
+4. Write validation logic for email format using if/else
+5. Create a nested loop to generate a pyramid pattern
+
+## Common Mistakes to Avoid
+
+- Forgetting break in switch statements (causes fall-through)
+- Using assignment (=) instead of comparison (==, ===)
+- Infinite loops (forgetting loop increment)
+- Not updating loop counter variables
+- Confusing for...in and for...of loops
+
+---
+
+**Course Section**: Control Flow - Making Decisions  
+**Author**: Solomon Kassa  
+**Last Updated**: February 2026  
+**Difficulty**: Beginner-Intermediate  
+**Prerequisites**: Fundamentals section  
+**Next**: Functions section
+
 **Start with**: [If/Else Statements](./01-if-else.md)
 
 ---

@@ -75,6 +75,103 @@ const merged = { ...person, job: 'Developer' };
 const combined = [...[1, 2], ...[3, 4]];  // [1,2,3,4]
 ```
 
+## Real-World Use Cases
+
+**Objects for user data:**
+```javascript
+const user = {
+  id: 1,
+  name: 'Alice',
+  email: 'alice@example.com',
+  greet() {
+    return `Hello, I'm ${this.name}`;
+  }
+};
+```
+
+**Arrays for collections:**
+```javascript
+const products = [
+  { id: 1, name: 'Laptop', price: 999 },
+  { id: 2, name: 'Mouse', price: 25 },
+  { id: 3, name: 'Keyboard', price: 75 }
+];
+const total = products.reduce((sum, p) => sum + p.price, 0);
+```
+
+**Complex data structures:**
+```javascript
+const company = {
+  name: 'TechCorp',
+  departments: [
+    { name: 'Engineering', employees: ['Alice', 'Bob'] },
+    { name: 'Sales', employees: ['Carol', 'David'] }
+  ]
+};
+```
+
+## Key Takeaways
+
+- Objects store data as key-value pairs (like real-world entities)
+- Arrays store ordered lists of items
+- Both are passed by reference (modifications affect original)
+- Destructuring makes code cleaner and more readable
+- Array methods like map, filter, reduce are essential
+- Understanding these structures is critical for any JavaScript work
+
+## Advanced Patterns
+
+- **Immutability**: Use spread operator to avoid modifying original data
+- **Method chaining**: Chain array methods for powerful transformations
+- **Deep cloning**: Use `JSON.parse(JSON.stringify(obj))` or spread deeply
+- **Object composition**: Build complex objects from simpler ones
+- **Factory functions**: Create objects with default properties
+
+## Common Mistakes to Avoid
+
+- Using `const` but then modifying object properties (const prevents reassignment, not mutation)
+- Confusing `map()` and `forEach()` - map returns new array, forEach doesn't
+- Not understanding that arrays/objects are passed by reference
+- Using `===` to compare objects (always false, compare properties instead)
+- Forgetting that spread operator does shallow copy, not deep copy
+
+## Performance Considerations
+
+- Array methods: map, filter, reduce create new arrays (memory cost)
+- Object property access is fast, even with many properties
+- Avoid very large arrays if possible
+- Use `for` loops for simple iterations if performance matters
+- Object lookup is O(1), array access is O(1), finding items is O(n)
+
+## Practice Exercises
+
+1. Create a student object with properties and methods
+2. Write functions to add, remove, and find items in an array
+3. Transform array of objects using map
+4. Filter products by price range
+5. Combine reduce with map/filter for complex transformations
+6. Use destructuring to extract nested data
+7. Clone objects and arrays properly
+8. Create a shopping cart with add/remove/calculate total
+
+## Exercises - Data Transformation
+
+1. Convert array of names to array of objects with id and name
+2. Filter array of numbers and get only even numbers
+3. Calculate sum, average, min, max of array values
+4. Group array items by a property
+5. Sort objects by multiple criteria
+6. Create lookup object from array for fast searching
+
+---
+
+**Course Section**: Objects & Arrays - Essential Data Structures  
+**Author**: Solomon Kassa  
+**Last Updated**: February 2026  
+**Difficulty**: Intermediate  
+**Prerequisites**: Fundamentals, Control Flow, Functions  
+**Next**: Object-Oriented Programming section
+
 **Start with**: [Objects](./01-objects.md)
 
 ---
